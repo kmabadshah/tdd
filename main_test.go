@@ -10,7 +10,7 @@ func assertCorrectMessage(t testing.TB, got, want interface{}) {
 	}
 }
 
-func TestHello(t *testing.T) {
+func TestGreet(t *testing.T) {
 	t.Run("Default English greeting", func(t *testing.T) {
 		got := Greet("Adnan", "Unknown Language")
 		want := "Hello Adnan"
@@ -38,5 +38,4 @@ func TestHello(t *testing.T) {
 
 		assertCorrectMessage(t, got, want)
 	})
-
 }

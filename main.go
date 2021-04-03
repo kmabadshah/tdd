@@ -30,10 +30,41 @@ func Add(a, b int) int {
 	return a + b
 }
 
-// takes a byte string and returns a string containing that byte 5 times
+// returns s which contains c n times
 func Repeat(c byte, n int) (s string) {
 	for i := 0; i < n; i++ {
 		s += string(c)
+	}
+
+	return
+}
+
+// add numbers inside slice
+func Sum(s []int) (res int) {
+	for _, num := range s {
+		res += num
+	}
+
+	return
+}
+
+// add numbers inside arr
+func SumAll(slices ...[]int) (sumSlice []int) {
+	for _, slice := range slices {
+		sumSlice = append(sumSlice, Sum(slice))
+	}
+	return
+}
+
+func SumAllTails(slices ...[]int) (sumSlice []int) {
+	for _, slice := range slices {
+		if len(slice) == 1 {
+			sumSlice = append(sumSlice, slice[0])
+		} else if len(slice) == 0 {
+			sumSlice = append(sumSlice, 0)
+		} else {
+			sumSlice = append(sumSlice, Sum(slice[1:]))
+		}
 	}
 
 	return
