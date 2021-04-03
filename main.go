@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"math"
 )
 
 func Greet(name string, lang string) string {
@@ -72,4 +73,48 @@ func SumAllTails(slices ...[]int) (sumSlice []int) {
 
 func main() {
 	fmt.Println(Greet("Adnan", "Spanish"))
+}
+
+type Shape interface {
+	Area() float64
+	Perimeter() float64
+}
+
+type Rectangle struct {
+	Width  float64
+	Height float64
+}
+
+type Circle struct {
+	Radius float64
+}
+
+type Triangle struct {
+	Base   float64
+	Height float64
+}
+
+func (r Rectangle) Perimeter() float64 {
+	return (r.Width + r.Height) * 2
+}
+
+func (r Circle) Perimeter() float64 {
+	return r.Radius * 2 * math.Pi
+}
+
+func (r Triangle) Perimeter() float64 {
+	thirdSide := math.Sqrt(math.Pow(r.Height, 2) + math.Pow(r.Base, 2))
+	return r.Height + r.Base + thirdSide
+}
+
+func (r Rectangle) Area() float64 {
+	return r.Width * r.Height
+}
+
+func (r Circle) Area() float64 {
+	return math.Pi * math.Pow(r.Radius, 2)
+}
+
+func (r Triangle) Area() float64 {
+	return (r.Height * r.Base) / 2
 }

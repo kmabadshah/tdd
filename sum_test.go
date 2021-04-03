@@ -12,7 +12,7 @@ func TestSum(t *testing.T) {
 	assertCorrectMessage(t, got, want)
 }
 
-func sliceComp(t testing.TB, got []int, want []int) {
+func sliceComp(t testing.TB, got, want []int) {
 	if !reflect.DeepEqual(got, want) {
 		t.Errorf("GOT %v WANT %v", got, want)
 	}

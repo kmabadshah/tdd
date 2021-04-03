@@ -6,7 +6,7 @@ import "testing"
 func assertCorrectMessage(t testing.TB, got, want interface{}) {
 	t.Helper()
 	if got != want {
-		t.Errorf("GOT %v WANT %v", got, want)
+		t.Errorf("GOT %#v WANT %#v", got, want)
 	}
 }
 
