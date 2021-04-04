@@ -1,8 +1,9 @@
 package main
 
 import (
-	"fmt"
+	"log"
 	"math"
+	"net/http"
 )
 
 func Greet(name string, lang string) string {
@@ -72,7 +73,11 @@ func SumAllTails(slices ...[]int) (sumSlice []int) {
 }
 
 func main() {
-	fmt.Println(Greet("Adnan", "Spanish"))
+	log.Fatal(http.ListenAndServe(":8000",
+		http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+			InjGreet(w, "Santa Clause")
+		},
+		)))
 }
 
 type Shape interface {
