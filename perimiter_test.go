@@ -38,7 +38,7 @@ func TestPerimeter(t *testing.T) {
 	shapes := GetShapes(
 		2*(5+4),
 		2*math.Pi*5,
-		10+5+math.Sqrt(math.Pow(10, 2)+math.Pow(5, 3)),
+		10+5+math.Sqrt(math.Pow(10, 2)+math.Pow(5, 2)),
 	)
 
 	for _, st := range shapes {
